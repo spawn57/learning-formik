@@ -38,7 +38,7 @@ function YoutubeForm() {
         validate: onValidate,
     });
 
-    console.log('formik errors', formik.errors);
+    console.log('formik visited', formik.touched);
 
     return (
         <div>
@@ -49,10 +49,11 @@ function YoutubeForm() {
                         type='text' 
                         id='name' 
                         name='name' 
+                        onBlur={formik.handleBlur}
                         onChange={formik.handleChange} 
                         value={formik.values.name} 
                     />
-                    { formik.errors.name ? <div className='error'>{formik.errors.name}</div> : null }
+                    { formik.touched.name && formik.errors.name ? <div className='error'>{formik.errors.name}</div> : null }
                 </div>
                 <div className='formControl'>
                     <label htmlFor='email'>E-mail</label>
@@ -60,10 +61,11 @@ function YoutubeForm() {
                         type='email' 
                         id='email' 
                         name='email' 
+                        onBlur={formik.handleBlur}
                         onChange={formik.handleChange} 
                         value={formik.values.email} 
                     />
-                    { formik.errors.email ? <div className='error'>{formik.errors.email}</div> : null }
+                    { formik.touched.email && formik.errors.email ? <div className='error'>{formik.errors.email}</div> : null }
                 </div>
                 <div className='formControl'>
                     <label htmlFor='channel'>Channel</label>
@@ -71,10 +73,11 @@ function YoutubeForm() {
                         type='text' 
                         id='channel' 
                         name='channel' 
+                        onBlur={formik.handleBlur}
                         onChange={formik.handleChange} 
                         value={formik.values.channel} 
                     />
-                    { formik.errors.channel ? <div className='error'>{formik.errors.channel}</div> : null }
+                    { formik.touched.channel && formik.errors.channel ? <div className='error'>{formik.errors.channel}</div> : null }
                 </div>
                 <button type='submit'>Submit</button>
             </form>
