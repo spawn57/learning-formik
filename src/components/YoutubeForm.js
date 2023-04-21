@@ -124,7 +124,6 @@ function YoutubeForm() {
                                 const { push, remove, form } = fieldArrayProps;
                                 const { values } = form;
                                 const { phNumbers } = values;
-                                console.log(phNumbers);
                                 return (
                                     <div>
                                       {phNumbers.map((phNumber, index) => (
