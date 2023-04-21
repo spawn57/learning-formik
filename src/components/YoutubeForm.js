@@ -16,6 +16,14 @@ const initialValues = {
     phNumbers: [''],
 };
 
+const validateComments = (value) => {
+    let error;
+    if (!value) {
+        error = 'Required';
+    }
+    return error;
+}
+
 const onSubmit = (values) => {
     console.log('form values', values);
 }
@@ -74,6 +82,16 @@ function YoutubeForm() {
                         id='facebook'
                         name='social.facebook'
                     />
+                </div>
+                <div className='formControl'>
+                    <label htmlFor='comments'>Comments</label>
+                    <Field 
+                        as='textarea'
+                        id='comments'
+                        name='comments'
+                        validate={validateComments}
+                    />
+                    <ErrorMessage name='comments' component={TextError} />
                 </div>
                 <div className='formControl'>
                     <label htmlFor='twitter'>Twitter</label>
