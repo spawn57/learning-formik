@@ -5,8 +5,9 @@ import TextError from './TextError';
 
 const initialValues = {
     name: 'Sunil',
-    email: '',
-    channel: '',
+    email: 'v@example.com',
+    channel: 'code evolution',
+    comments: 'asd',
     address: '',
     social: {
         facebook: '',
@@ -40,6 +41,7 @@ function YoutubeForm() {
             initialValues={initialValues}
             validationSchema={validateSchema} 
             onSubmit={onSubmit} 
+            // validateOnMount
         >
             {formik => {
                 console.log('Formik props', formik);
@@ -166,7 +168,9 @@ function YoutubeForm() {
                     })}>
                       Visit all
                     </button>
-                    <button type="submit">Submit</button>
+                    <button type="submit" disabled={!(formik.dirty && formik.isValid)}>
+                        Submit
+                    </button>
                   </Form>
                 );
                 }
