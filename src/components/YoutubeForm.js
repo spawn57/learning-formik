@@ -5,9 +5,9 @@ import TextError from './TextError';
 
 const initialValues = {
     name: 'Sunil',
-    email: 'v@example.com',
-    channel: 'code evolution',
-    comments: 'asd',
+    email: '',
+    channel: '',
+    comments: '',
     address: '',
     social: {
         facebook: '',
@@ -25,8 +25,10 @@ const validateComments = (value) => {
     return error;
 }
 
-const onSubmit = (values) => {
+const onSubmit = (values, onSubmitProps) => {
     console.log('form values', values);
+    console.log('submit props', onSubmitProps);
+    onSubmitProps.setSubmitting(false);
 }
 
 const validateSchema = yup.object({
@@ -168,7 +170,7 @@ function YoutubeForm() {
                     })}>
                       Visit all
                     </button>
-                    <button type="submit" disabled={!(formik.dirty && formik.isValid)}>
+                    <button type="submit" disabled={!formik.isValid || formik.isSubmitting}>
                         Submit
                     </button>
                   </Form>
