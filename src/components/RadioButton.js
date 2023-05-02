@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, ErrorMessage } from 'formik';
 import TextError from './TextError';
 
-function RadioButtons(props) {
+function RadioButton(props) {
   const { label, name, options, ...rest } = props
     return (
     <div className='form-control'>
@@ -32,4 +32,4 @@ function RadioButtons(props) {
   )
 }
 
-export default RadioButtons;
+export default RadioButton;
