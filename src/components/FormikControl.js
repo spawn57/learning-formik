@@ -1,14 +1,13 @@
 import Input from './Input';
-import Textarea from './Textarea';
-import RadioButtons from './radiobuttons';
+import TextArea from './TextArea';
 
 function FormikControl(props) {
   const { control, ...rest } = props;
   switch (control) {
     case "input":
-      return <Input {...rest} />;
+        return <Input {...rest} />;
     case "textarea":
-      return <Textarea {...rest} />;
+        return <TextArea {...rest} />;
     case "select":
     case "radio":
       return <RadioButtons {...rest} />;
