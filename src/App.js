@@ -1,10 +1,10 @@
 import './App.css';
-import RegistrationForm from './components/RegistrationForm';
+import EnrolmentForm from './components/EnrolmentForm';
 
 function App() {
   return (
     <div className="App">
-      <RegistrationForm />
+      <EnrolmentForm />
     </div>
   );
 }
